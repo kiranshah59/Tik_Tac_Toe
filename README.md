@@ -1,5 +1,12 @@
 # Tic-Tac-Toe Portfolio Project
 
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://tik-tac-toe-59rs.vercel.app)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript)](https://typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
+
+> **[▶ Play the Live Demo](https://tik-tac-toe-59rs.vercel.app)**
+
 A modern, responsive, and visually appealing Tic-Tac-Toe web application built with React, TypeScript, Tailwind CSS v4, and Vite. Designed as a portfolio piece showcasing clean architecture, state management, and algorithmic thinking.
 
 ## 🌟 Features
