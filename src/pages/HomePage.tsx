@@ -36,7 +36,7 @@ const AnimatedBoardPreview: React.FC = () => {
   const [winLine, setWinLine] = useState<number[] | null>(null);
 
   useEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout>;
+    let cancelled = false;
     
     const playSequence = async () => {
       // The sequence of moves to demonstrate a win
@@ -54,6 +54,7 @@ const AnimatedBoardPreview: React.FC = () => {
       setBoard(Array(9).fill(null));
       setWinLine(null);
       await new Promise((r) => setTimeout(r, 800));
+      if (cancelled) return;
 
       for (let i = 0; i < moves.length; i++) {
         setBoard((prev) => {
@@ -62,18 +63,20 @@ const AnimatedBoardPreview: React.FC = () => {
           return newBoard;
         });
         await new Promise((r) => setTimeout(r, 600));
+        if (cancelled) return;
       }
 
       // Show win line
       setWinLine([2, 5, 8]);
       await new Promise((r) => setTimeout(r, 2000));
+      if (cancelled) return;
       
       // Loop
       playSequence();
     };
 
     playSequence();
-    return () => clearTimeout(timeoutId);
+    return () => { cancelled = true; };
   }, []);
 
   return (
