@@ -36,7 +36,7 @@ const AnimatedBoardPreview: React.FC = () => {
   const [winLine, setWinLine] = useState<number[] | null>(null);
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: ReturnType<typeof setTimeout>;
     
     const playSequence = async () => {
       // The sequence of moves to demonstrate a win

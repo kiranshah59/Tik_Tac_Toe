@@ -3,7 +3,7 @@
 // ============================================================
 
 import React from 'react';
-import { Github, Linkedin, Code2 } from 'lucide-react';
+import { Globe, Mail, Code2 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -44,16 +44,16 @@ export const Footer: React.FC = () => {
             <a 
               href="#" 
               className="p-2 rounded-full bg-white/5 border border-white/10 text-secondary/80 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary"
-              aria-label="GitHub Repository"
+              aria-label="Website"
             >
-              <Github size={18} />
+              <Globe size={18} />
             </a>
             <a 
               href="#" 
               className="p-2 rounded-full bg-white/5 border border-white/10 text-secondary/80 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary"
-              aria-label="LinkedIn Profile"
+              aria-label="Contact"
             >
-              <Linkedin size={18} />
+              <Mail size={18} />
             </a>
           </div>
         </div>
