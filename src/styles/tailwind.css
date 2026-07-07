@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Custom Theme Configuration — Tic-Tac-Toe
+   ============================================================ */
+
+@theme {
+  /* ─── Color Tokens ─── */
+  --color-primary: #6C63FF;
+  --color-primary-light: #8B83FF;
+  --color-primary-dark: #5A52E0;
+  --color-secondary: #FF6584;
+  --color-secondary-light: #FF8DA6;
+  --color-secondary-dark: #E04E6D;
+  --color-accent: #00D9FF;
+  --color-accent-light: #33E3FF;
+  --color-accent-dark: #00B8D9;
+
+  --color-success: #00E676;
+  --color-warning: #FFD600;
+  --color-error: #FF5252;
+
+  /* Dark theme colors */
+  --color-dark-bg: #0F0F23;
+  --color-dark-surface: #1A1A3E;
+  --color-dark-card: #25254B;
+  --color-dark-border: #35356B;
+  --color-dark-text: #E8E8FF;
+  --color-dark-text-secondary: #A0A0CC;
+
+  /* Light theme colors */
+  --color-light-bg: #F8F9FF;
+  --color-light-surface: #FFFFFF;
+  --color-light-card: #FFFFFF;
+  --color-light-border: #E0E0F0;
+  --color-light-text: #1A1A3E;
+  --color-light-text-secondary: #6B6B9E;
+
+  /* Glass effect */
+  --color-glass: rgba(255, 255, 255, 0.08);
+  --color-glass-border: rgba(255, 255, 255, 0.12);
+  --color-glass-light: rgba(255, 255, 255, 0.85);
+  --color-glass-border-light: rgba(0, 0, 0, 0.08);
+
+  /* ─── Typography ─── */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* ─── Spacing & Sizing ─── */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* ─── Animations ─── */
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-slide-up: slide-up 0.4s ease-out;
+  --animate-slide-down: slide-down 0.3s ease-out;
+  --animate-scale-in: scale-in 0.3s ease-out;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-draw-x: draw-x 0.4s ease-out forwards;
+  --animate-draw-o: draw-o 0.4s ease-out forwards;
+  --animate-spin-slow: spin 8s linear infinite;
+  --animate-bounce-in: bounce-in 0.5s ease-out;
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-timer-pulse: timer-pulse 1s ease-in-out infinite;
+}
+
+/* ─── Keyframes ─── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(108, 99, 255, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(108, 99, 255, 0.6); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes draw-x {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes draw-o {
+  from { stroke-dashoffset: 283; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes timer-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes cell-hover-pulse {
+  0%, 100% { background-color: rgba(108, 99, 255, 0.05); }
+  50% { background-color: rgba(108, 99, 255, 0.12); }
+}
+
+/* ============================================================
+   Global Styles
+   ============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Dark Theme (default) ─── */
+.dark body,
+.dark {
+  background: linear-gradient(135deg, var(--color-dark-bg) 0%, var(--color-dark-surface) 100%);
+  color: var(--color-dark-text);
+}
+
+/* ─── Light Theme ─── */
+.light body,
+.light {
+  background: linear-gradient(135deg, var(--color-light-bg) 0%, #EEF0FF 100%);
+  color: var(--color-light-text);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-dark-border);
+  border-radius: 4px;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: var(--color-light-border);
+  border-radius: 4px;
+}
+
+/* ─── Focus Styles for Accessibility ─── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(108, 99, 255, 0.3);
+  color: inherit;
+}
+
+/* ─── Utility Classes ─── */
+
+.glass {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.dark .glass {
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+}
+
+.light .glass {
+  background: var(--color-glass-light);
+  border: 1px solid var(--color-glass-border-light);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+.neon-glow {
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.4), 0 0 60px rgba(108, 99, 255, 0.1);
+}
+
+.dark .surface-card {
+  background: var(--color-dark-card);
+  border: 1px solid var(--color-dark-border);
+}
+
+.light .surface-card {
+  background: var(--color-light-card);
+  border: 1px solid var(--color-light-border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.dark .text-secondary {
+  color: var(--color-dark-text-secondary);
+}
+
+.light .text-secondary {
+  color: var(--color-light-text-secondary);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Responsive minimum height ─── */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
