@@ -43,34 +43,37 @@ const App: React.FC = () => {
       {/* Toast notifications */}
       <ToastContainer />
 
-      {/* Navigation */}
-      <Navbar />
+      {/* Layout wrapper: flex column fills entire viewport height */}
+      <div className="flex flex-col min-h-screen w-full">
+        {/* Navigation */}
+        <Navbar />
 
-      {/* Main Content Area */}
-      <main className="flex-1 flex flex-col items-center w-full relative overflow-x-hidden min-h-screen pt-14">
-        {/* Subtle Grid Background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none -z-10" />
+        {/* Main Content Area — flex-1 pushes footer to the bottom */}
+        <main className="flex-1 flex flex-col items-center w-full relative overflow-x-hidden pt-[72px]">
+          {/* Subtle Grid Background */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none -z-10" />
 
-        {/* Global decorative background element - very subtle glow at the top */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[30vh] bg-primary/10 blur-[120px] pointer-events-none -z-10 rounded-full" />
-        
-        {/* Routes */}
-        <Suspense fallback={<PageLoader />}>
-          <div className="flex-1 w-full flex flex-col items-center justify-start">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/settings" element={<GameSettingsPage />} />
-              <Route path="/play" element={<GamePage />} />
-              <Route path="/history" element={<HistoryPage />} />
-              <Route path="/stats" element={<StatsPage />} />
-              <Route path="/achievements" element={<AchievementsPage />} />
-            </Routes>
-          </div>
-        </Suspense>
+          {/* Global decorative glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[30vh] bg-primary/10 blur-[120px] pointer-events-none -z-10 rounded-full" />
 
-        {/* Footer */}
+          {/* Routes */}
+          <Suspense fallback={<PageLoader />}>
+            <div className="flex-1 w-full flex flex-col items-center justify-start">
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/settings" element={<GameSettingsPage />} />
+                <Route path="/play" element={<GamePage />} />
+                <Route path="/history" element={<HistoryPage />} />
+                <Route path="/stats" element={<StatsPage />} />
+                <Route path="/achievements" element={<AchievementsPage />} />
+              </Routes>
+            </div>
+          </Suspense>
+        </main>
+
+        {/* Footer lives outside main — always anchored to the bottom */}
         <Footer />
-      </main>
+      </div>
     </BrowserRouter>
   );
 };

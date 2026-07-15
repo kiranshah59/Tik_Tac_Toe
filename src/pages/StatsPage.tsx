@@ -87,13 +87,18 @@ export const StatsPage: React.FC = () => {
   ];
 
   return (
-    <div className="py-8 px-4 max-w-4xl mx-auto w-full animate-slide-up z-10 relative">
-      {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-heading)] gradient-text mb-2">
-          Statistics
+    <div className="mx-auto max-w-[1200px] w-full px-6 pt-32 pb-20 z-10 relative animate-slide-up">
+      {/* ─── Header ─── */}
+      <div className="flex flex-col items-center text-center gap-5 mb-12 w-full">
+        <div className="w-16 h-16 rounded-[20px] bg-gradient-to-br from-[#6366F1]/20 to-[#8B5CF6]/20 border border-[#6366F1]/30 flex items-center justify-center mb-4 shadow-[0_0_24px_rgba(99,102,241,0.2)]">
+          <BarChart3 size={32} className="text-[#A78BFA]" />
+        </div>
+        <h1 className="text-4xl sm:text-[48px] font-black font-[family-name:var(--font-heading)] tracking-tight leading-[1.1] text-white">
+          Game <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22D3EE] to-[#8B5CF6]">Statistics</span>
         </h1>
-        <p className="text-secondary text-sm">Your performance at a glance</p>
+        <p className="text-[16px] text-[#7a85a3] leading-relaxed mt-4 max-w-2xl mx-auto">
+          Your performance at a glance. Analyze your win rate, longest streaks, and match distributions.
+        </p>
       </div>
 
       {matches.length === 0 ? (
@@ -103,47 +108,50 @@ export const StatsPage: React.FC = () => {
           <p className="text-secondary text-sm">Play some games to see your stats!</p>
         </Card>
       ) : (
-        <div className="space-y-6">
+        <div className="flex flex-col gap-12 w-full">
           {/* Summary Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          {/* Summary Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {summaryCards.map((card, index) => (
-              <Card
+              <div
                 key={card.label}
-                variant="glass"
-                className="text-center !p-4"
+                className="bg-[#141828]/75 backdrop-blur-xl border border-white/[0.08] rounded-[20px] shadow-[0_8px_32px_rgba(0,0,0,0.15)] hover:shadow-[0_8px_40px_rgba(99,102,241,0.2)] hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col items-center justify-center h-[150px] min-h-[140px]"
               >
                 <div
-                  className="animate-slide-up"
+                  className="animate-slide-up flex flex-col items-center justify-center w-full h-full"
                   style={{ animationDelay: `${index * 80}ms`, animationFillMode: 'both' }}
                 >
-                  <div className={`mx-auto mb-2 ${card.color}`}>{card.icon}</div>
-                  <div className="text-2xl font-bold font-[family-name:var(--font-heading)]">
+                  <div className={`mb-3 ${card.color}`}>{card.icon}</div>
+                  <div className="text-3xl font-black font-[family-name:var(--font-heading)] text-white mb-1">
                     {card.value}
                   </div>
-                  <div className="text-xs text-secondary mt-0.5">{card.label}</div>
+                  <div className="text-[13px] font-semibold text-[#7a85a3] uppercase tracking-wider">
+                    {card.label}
+                  </div>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
 
           {/* Charts Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
             {/* Win Distribution Pie Chart */}
-            <Card variant="glass">
-              <h3 className="text-sm font-semibold text-secondary uppercase tracking-wider mb-4">
+            <div className="bg-[#0b1022]/80 backdrop-blur-xl border border-white/[0.08] rounded-[20px] shadow-[0_8px_32px_rgba(0,0,0,0.2)] p-6 flex flex-col h-[380px]">
+              <h3 className="text-[14px] font-bold text-white uppercase tracking-wider mb-6 px-2">
                 Result Distribution
               </h3>
-              <div className="h-64">
+              <div className="flex-1 w-full relative">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
                       data={stats.pieData}
                       cx="50%"
                       cy="50%"
-                      innerRadius={60}
-                      outerRadius={90}
-                      paddingAngle={5}
+                      innerRadius={70}
+                      outerRadius={105}
+                      paddingAngle={6}
                       dataKey="value"
+                      stroke="none"
                     >
                       {stats.pieData.map((entry, index) => (
                         <RechartsCell key={`cell-${index}`} fill={entry.color} />
@@ -151,50 +159,65 @@ export const StatsPage: React.FC = () => {
                     </Pie>
                     <Tooltip
                       contentStyle={{
-                        background: 'rgba(26, 26, 62, 0.95)',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        borderRadius: '12px',
+                        background: 'rgba(15, 20, 45, 0.95)',
+                        border: '1px solid rgba(255,255,255,0.08)',
+                        borderRadius: '16px',
                         color: '#fff',
+                        boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                        padding: '12px 16px',
                       }}
+                      itemStyle={{ color: '#fff', fontSize: '14px', fontWeight: 500 }}
                     />
-                    <Legend />
+                    <Legend 
+                      verticalAlign="bottom" 
+                      height={36} 
+                      iconType="circle"
+                      wrapperStyle={{ paddingTop: '20px', fontSize: '14px' }}
+                    />
                   </PieChart>
                 </ResponsiveContainer>
               </div>
-            </Card>
+            </div>
 
             {/* Wins by Player Bar Chart */}
-            <Card variant="glass">
-              <h3 className="text-sm font-semibold text-secondary uppercase tracking-wider mb-4">
+            <div className="bg-[#0b1022]/80 backdrop-blur-xl border border-white/[0.08] rounded-[20px] shadow-[0_8px_32px_rgba(0,0,0,0.2)] p-6 flex flex-col h-[380px]">
+              <h3 className="text-[14px] font-bold text-white uppercase tracking-wider mb-6 px-2">
                 Wins by Player
               </h3>
-              <div className="h-64">
+              <div className="flex-1 w-full relative">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={stats.barData}>
+                  <BarChart data={stats.barData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                     <XAxis
                       dataKey="name"
-                      tick={{ fill: '#A0A0CC', fontSize: 12 }}
+                      tick={{ fill: '#7a85a3', fontSize: 13, fontWeight: 500 }}
                       axisLine={false}
                       tickLine={false}
+                      dy={10}
                     />
                     <YAxis
-                      tick={{ fill: '#A0A0CC', fontSize: 12 }}
+                      tick={{ fill: '#7a85a3', fontSize: 13, fontWeight: 500 }}
                       axisLine={false}
                       tickLine={false}
+                      tickCount={5}
+                      allowDecimals={false}
                     />
                     <Tooltip
+                      cursor={{ fill: 'rgba(255,255,255,0.04)' }}
                       contentStyle={{
-                        background: 'rgba(26, 26, 62, 0.95)',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        borderRadius: '12px',
+                        background: 'rgba(15, 20, 45, 0.95)',
+                        border: '1px solid rgba(255,255,255,0.08)',
+                        borderRadius: '16px',
                         color: '#fff',
+                        boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                        padding: '12px 16px',
                       }}
+                      itemStyle={{ color: '#fff', fontSize: '14px', fontWeight: 500 }}
                     />
-                    <Bar dataKey="wins" fill="#6C63FF" radius={[8, 8, 0, 0]} />
+                    <Bar dataKey="wins" fill="#8B5CF6" radius={[6, 6, 0, 0]} maxBarSize={60} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-            </Card>
+            </div>
           </div>
         </div>
       )}
