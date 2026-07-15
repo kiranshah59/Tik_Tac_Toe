@@ -3,7 +3,7 @@
 // ============================================================
 
 import React from 'react';
-import { Mail, Globe, Heart } from 'lucide-react';
+import { Mail, Sparkles, Code2, Component, Wind, Database } from 'lucide-react';
 
 const GithubIcon = ({ size = 16 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -19,66 +19,64 @@ const LinkedinIcon = ({ size = 16 }: { size?: number }) => (
   </svg>
 );
 
+const TechBadge = ({ icon: Icon, name, color }: { icon: any, name: string, color: string }) => (
+  <div className="flex flex-col items-center gap-2 group">
+    <div className={`w-12 h-12 rounded-[14px] bg-[#0b1022] border border-white/[0.04] flex items-center justify-center transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-[#111832] group-hover:border-[${color}]/30 group-hover:shadow-[0_0_15px_rgba(0,0,0,0.5)]`}>
+      <Icon size={20} style={{ color }} className="drop-shadow-[0_0_8px_currentColor] opacity-80 group-hover:opacity-100 transition-opacity" />
+    </div>
+    <span className="text-[10px] font-semibold text-[#556080] group-hover:text-[#8a94b5] transition-colors">{name}</span>
+  </div>
+);
+
 export const Footer: React.FC = () => {
   return (
-    <footer className="w-full border-t border-white/10 bg-dark-bg/50 backdrop-blur-md z-10 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+    <footer className="w-full bg-[#080B1A] border-t border-white/[0.04] py-12 md:py-16 z-10 relative">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           
-          {/* Brand & Copyright */}
-          <div className="flex flex-col items-center md:items-start gap-2">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-[#2A62FF] flex items-center justify-center font-bold text-white text-sm shadow-[0_0_15px_rgba(42,98,255,0.7)] transition-transform hover:scale-105">
+          {/* Left: Brand & Description */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6366F1] to-[#8B5CF6] flex items-center justify-center font-bold text-white shadow-[0_0_20px_rgba(99,102,241,0.4)]">
                 T³
               </div>
-              <span className="font-bold font-[family-name:var(--font-heading)] text-lg">
+              <span className="font-bold font-[family-name:var(--font-heading)] text-xl tracking-tight text-white">
                 Tic-Tac-Toe
               </span>
             </div>
-            <p className="text-sm text-[#8a94b5]">
-              © 2026 Your Name. All rights reserved.
+            <p className="text-[13px] text-[#7a85a3] max-w-[280px] leading-relaxed">
+              The ultimate classic game reimagined with modern design and smart AI.
             </p>
-          </div>
-
-          {/* Tech Stack */}
-          <div className="flex flex-col items-center justify-center gap-2">
-            <div className="flex items-center gap-1.5 text-sm font-medium text-[#8a94b5]">
-              <span>Built with <span className="text-[#3B82F6]">React</span> + <span className="text-[#6366F1]">TypeScript</span> + <span className="text-[#A855F7]">Tailwind CSS</span></span>
-              <Heart size={14} className="text-[#A855F7] fill-[#A855F7]" />
+            <div className="flex items-center gap-3 mt-2">
+              <a href="#" className="w-9 h-9 rounded-full bg-[#0b1022] border border-white/[0.04] flex items-center justify-center text-[#556080] hover:text-white hover:bg-[#111832] hover:border-[#6366F1]/30 transition-all duration-300 hover:-translate-y-0.5" aria-label="GitHub"><GithubIcon size={15} /></a>
+              <a href="#" className="w-9 h-9 rounded-full bg-[#0b1022] border border-white/[0.04] flex items-center justify-center text-[#556080] hover:text-white hover:bg-[#111832] hover:border-[#6366F1]/30 transition-all duration-300 hover:-translate-y-0.5" aria-label="LinkedIn"><LinkedinIcon size={15} /></a>
+              <a href="#" className="w-9 h-9 rounded-full bg-[#0b1022] border border-white/[0.04] flex items-center justify-center text-[#556080] hover:text-white hover:bg-[#111832] hover:border-[#6366F1]/30 transition-all duration-300 hover:-translate-y-0.5" aria-label="Email"><Mail size={15} /></a>
             </div>
           </div>
 
-          {/* Social Links */}
-          <div className="flex items-center justify-center md:justify-end gap-3">
-            <a 
-              href="#" 
-              className="w-10 h-10 rounded-full bg-[#131B3A] border border-white/5 flex items-center justify-center text-[#8a94b5] hover:text-white hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(139,92,246,0.3)] focus:outline-none focus:ring-2 focus:ring-primary"
-              aria-label="GitHub"
-            >
-              <GithubIcon size={16} />
-            </a>
-            <a 
-              href="#" 
-              className="w-10 h-10 rounded-full bg-[#131B3A] border border-white/5 flex items-center justify-center text-[#8a94b5] hover:text-white hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(139,92,246,0.3)] focus:outline-none focus:ring-2 focus:ring-primary"
-              aria-label="LinkedIn"
-            >
-              <LinkedinIcon size={16} />
-            </a>
-            <a 
-              href="#" 
-              className="w-10 h-10 rounded-full bg-[#131B3A] border border-white/5 flex items-center justify-center text-[#8a94b5] hover:text-white hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(139,92,246,0.3)] focus:outline-none focus:ring-2 focus:ring-primary"
-              aria-label="Website"
-            >
-              <Globe size={16} />
-            </a>
-            <a 
-              href="#" 
-              className="w-10 h-10 rounded-full bg-[#131B3A] border border-white/5 flex items-center justify-center text-[#8a94b5] hover:text-white hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(139,92,246,0.3)] focus:outline-none focus:ring-2 focus:ring-primary"
-              aria-label="Email"
-            >
-              <Mail size={16} />
-            </a>
+          {/* Center: Built With */}
+          <div className="flex flex-col items-center gap-5">
+            <span className="text-[11px] font-bold text-[#556080] uppercase tracking-widest">Built With</span>
+            <div className="flex items-center gap-3 sm:gap-4 flex-wrap justify-center">
+              <TechBadge icon={Component} name="React" color="#61DAFB" />
+              <TechBadge icon={Code2} name="TypeScript" color="#3178C6" />
+              <TechBadge icon={Wind} name="Tailwind" color="#38BDF8" />
+              <TechBadge icon={Database} name="Zustand" color="#FACC15" />
+              <TechBadge icon={Sparkles} name="Vite" color="#646CFF" />
+            </div>
           </div>
+
+          {/* Right: About */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-4 h-full">
+            <span className="text-[11px] font-bold text-[#556080] uppercase tracking-widest">About</span>
+            <p className="text-[13px] text-[#7a85a3] max-w-[280px] leading-relaxed">
+              A modern Tic-Tac-Toe experience crafted with passion.
+            </p>
+            <p className="text-[11px] text-[#556080] mt-auto pt-6">
+              © 2026 Project Name. All rights reserved.
+            </p>
+          </div>
+
         </div>
       </div>
     </footer>
