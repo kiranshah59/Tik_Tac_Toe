@@ -6,27 +6,27 @@
 
 @theme {
   /* ─── Color Tokens ─── */
-  --color-primary: #6C63FF;
-  --color-primary-light: #8B83FF;
-  --color-primary-dark: #5A52E0;
-  --color-secondary: #FF6584;
-  --color-secondary-light: #FF8DA6;
-  --color-secondary-dark: #E04E6D;
-  --color-accent: #00D9FF;
-  --color-accent-light: #33E3FF;
-  --color-accent-dark: #00B8D9;
+  --color-primary: #8B5CF6;
+  --color-primary-light: #A78BFA;
+  --color-primary-dark: #7C3AED;
+  --color-secondary: #6366F1;
+  --color-secondary-light: #818CF8;
+  --color-secondary-dark: #4F46E5;
+  --color-accent: #22D3EE;
+  --color-accent-light: #67E8F9;
+  --color-accent-dark: #06B6D4;
 
-  --color-success: #00E676;
-  --color-warning: #FFD600;
-  --color-error: #FF5252;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
 
   /* Dark theme colors */
-  --color-dark-bg: #0F0F23;
-  --color-dark-surface: #1A1A3E;
-  --color-dark-card: #25254B;
-  --color-dark-border: #35356B;
-  --color-dark-text: #E8E8FF;
-  --color-dark-text-secondary: #A0A0CC;
+  --color-dark-bg: #080B1A;
+  --color-dark-surface: #0a0f25;
+  --color-dark-card: #0c1226;
+  --color-dark-border: rgba(255, 255, 255, 0.05);
+  --color-dark-text: #F8FAFC;
+  --color-dark-text-secondary: #CBD5E1;
 
   /* Light theme colors */
   --color-light-bg: #F8F9FF;

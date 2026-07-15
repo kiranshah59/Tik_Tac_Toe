@@ -18,7 +18,7 @@ export const ThemeToggle: React.FC = () => {
         transition-all duration-300 ease-out
         cursor-pointer
         ${isDark
-          ? 'bg-dark-border shadow-inner shadow-black/20'
+          ? 'bg-[#131B3A] shadow-inner shadow-black/20 border border-white/5'
           : 'bg-yellow-200 shadow-inner shadow-yellow-300/30'
         }
       `}
@@ -33,7 +33,7 @@ export const ThemeToggle: React.FC = () => {
           flex items-center justify-center
           transition-all duration-300 ease-out
           ${isDark
-            ? 'left-[calc(100%-28px)] bg-primary shadow-lg shadow-primary/40'
+            ? 'left-[calc(100%-28px)] bg-[#2A376B] shadow-lg shadow-[#131B3A]/40'
             : 'left-1 bg-white shadow-lg shadow-yellow-400/30'
           }
         `}
