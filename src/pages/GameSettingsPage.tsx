@@ -92,13 +92,13 @@ export const GameSettingsPage: React.FC = () => {
 
   return (
     <div
-      className="w-[92%] max-w-[1400px] mx-auto z-10 relative animate-slide-up"
+      className="w-[calc(100%-120px)] max-w-[1400px] mx-auto z-10 relative animate-slide-up"
       style={{ paddingTop: '80px', paddingBottom: '80px' }}
     >
       {/* ═══ CSS GRID: two columns ═══ */}
       <div
-        className="grid items-start gap-12"
-        style={{ gridTemplateColumns: '1fr 1.4fr' }}
+        className="grid items-start gap-10"
+        style={{ gridTemplateColumns: '2fr 3fr' }}
       >
         {/* ═══════════════════════════════════════
             LEFT COLUMN — 40%
@@ -137,11 +137,11 @@ export const GameSettingsPage: React.FC = () => {
         <div
           className="rounded-[24px] border border-white/[0.06] backdrop-blur-xl shadow-[0_8px_80px_rgba(0,0,0,0.45)]"
           style={{
-            padding: '40px',
+            padding: '48px',
             background: 'linear-gradient(135deg, rgba(15,20,45,0.85) 0%, rgba(10,14,35,0.9) 100%)',
           }}
         >
-          <div className="flex flex-col" style={{ gap: '32px' }}>
+          <div className="flex flex-col" style={{ gap: '40px' }}>
 
             {/* ── GAME MODE ── */}
             <section>
@@ -153,16 +153,16 @@ export const GameSettingsPage: React.FC = () => {
                     <button
                       key={mode}
                       onClick={() => setMode(mode)}
-                      className={`${selectionCard(active)} p-5 text-left`}
+                      className={`${selectionCard(active)} p-6 text-left`}
                     >
                       {active && <div className="absolute inset-0 bg-gradient-to-br from-[#6366F1]/8 to-transparent pointer-events-none" />}
-                      <div className="relative z-10 flex items-start gap-4">
-                        <div className={`mt-0.5 ${active ? 'text-[#A78BFA]' : 'text-[#556080]'} transition-colors`}>
+                      <div className="relative z-10 flex items-center gap-4">
+                        <div className={`${active ? 'text-[#A78BFA]' : 'text-[#556080]'} transition-colors`}>
                           {icon}
                         </div>
                         <div>
-                          <div className={`font-bold text-[15px] mb-0.5 ${active ? 'text-white' : 'text-[#8a94b5]'}`}>{label}</div>
-                          <div className="text-xs text-[#556080]">{desc}</div>
+                          <div className={`font-bold text-[16px] ${active ? 'text-white' : 'text-[#8a94b5]'}`}>{label}</div>
+                          <div className="text-[13px] text-[#556080] mt-0.5">{desc}</div>
                         </div>
                       </div>
                     </button>
@@ -180,7 +180,7 @@ export const GameSettingsPage: React.FC = () => {
                   <label className="text-[11px] text-[#7a85a3] mb-2 block font-semibold tracking-wide">
                     Player 1 ({settings.players[0].symbol})
                   </label>
-                  <div className={`flex items-center gap-3 h-[52px] px-4 rounded-xl border transition-all ${
+                  <div className={`flex items-center gap-3 h-[56px] px-4 rounded-xl border transition-all ${
                     'bg-[#0b1022] border-[#6366F1]/40 shadow-[0_0_10px_rgba(99,102,241,0.12)]'
                   }`}>
                     <User size={16} className="text-[#A78BFA] flex-shrink-0" />
@@ -198,7 +198,7 @@ export const GameSettingsPage: React.FC = () => {
                 {/* Swap */}
                 <button
                   onClick={swapSymbols}
-                  className="h-[52px] px-5 rounded-xl border border-white/[0.06] hover:border-[#A78BFA]/30 bg-transparent hover:bg-white/[0.03] text-[#A78BFA] hover:text-white flex items-center gap-2 text-sm font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap"
+                  className="h-[56px] px-5 rounded-xl border border-white/[0.06] hover:border-[#A78BFA]/30 bg-transparent hover:bg-white/[0.03] text-[#A78BFA] hover:text-white flex items-center gap-2 text-sm font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap"
                 >
                   <ArrowLeftRight size={16} />
                   Swap Symbols
@@ -209,7 +209,7 @@ export const GameSettingsPage: React.FC = () => {
                   <label className="text-[11px] text-[#7a85a3] mb-2 block font-semibold tracking-wide">
                     {settings.mode === 'pvc' ? 'Computer' : 'Player 2'} ({settings.players[1].symbol})
                   </label>
-                  <div className="flex items-center gap-3 h-[52px] px-4 rounded-xl bg-[#0b1022] border border-white/[0.04] transition-all">
+                  <div className="flex items-center gap-3 h-[56px] px-4 rounded-xl bg-[#0b1022] border border-white/[0.04] transition-all">
                     <User size={16} className="text-[#556080] flex-shrink-0" />
                     <input
                       type="text"
@@ -235,7 +235,7 @@ export const GameSettingsPage: React.FC = () => {
                     <button
                       key={size}
                       onClick={() => setBoardSize(size)}
-                      className={`${selectionCard(active)} h-[56px] flex items-center justify-center gap-2.5`}
+                      className={`${selectionCard(active)} h-[60px] flex items-center justify-center gap-2.5`}
                     >
                       <Grid3X3 size={16} className={active ? 'text-[#A78BFA]' : 'text-[#556080]'} />
                       <span className={`font-bold text-sm ${active ? 'text-white' : 'text-[#7a85a3]'}`}>{label}</span>
@@ -280,7 +280,7 @@ export const GameSettingsPage: React.FC = () => {
                     <button
                       key={index}
                       onClick={() => setFirstPlayer(index as 0 | 1)}
-                      className={`${selectionCard(active)} p-4 text-left`}
+                      className={`${selectionCard(active)} p-5 text-left`}
                     >
                       {active && <div className="absolute inset-0 bg-gradient-to-br from-[#6366F1]/8 to-transparent pointer-events-none" />}
                       <div className="relative z-10 flex items-center gap-3">
@@ -300,7 +300,7 @@ export const GameSettingsPage: React.FC = () => {
               <SectionTitle>Options</SectionTitle>
               <div className="grid grid-cols-2 gap-4">
                 {/* Sound */}
-                <div className="flex items-center justify-between p-4 rounded-2xl bg-[#0b1022] border border-white/[0.04]">
+                <div className="flex items-center justify-between p-5 rounded-2xl bg-[#0b1022] border border-white/[0.04]">
                   <div className="flex items-center gap-3">
                     {settings.soundEnabled
                       ? <Volume2 size={18} className="text-[#A78BFA] flex-shrink-0" />
@@ -315,7 +315,7 @@ export const GameSettingsPage: React.FC = () => {
                 </div>
 
                 {/* Timer */}
-                <div className="flex items-center justify-between p-4 rounded-2xl bg-[#0b1022] border border-white/[0.04]">
+                <div className="flex items-center justify-between p-5 rounded-2xl bg-[#0b1022] border border-white/[0.04]">
                   <div className="flex items-center gap-3">
                     {settings.timerEnabled
                       ? <Timer size={18} className="text-[#A78BFA] flex-shrink-0" />
@@ -334,7 +334,7 @@ export const GameSettingsPage: React.FC = () => {
             {/* ── START GAME ── */}
             <button
               onClick={handleStartGame}
-              className="w-full h-[60px] rounded-2xl bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] hover:from-[#5558E6] hover:to-[#7C3AED] text-white font-bold text-[16px] flex items-center justify-center gap-3 shadow-[0_4px_32px_rgba(99,102,241,0.35)] hover:shadow-[0_4px_40px_rgba(99,102,241,0.5)] transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
+              className="w-full h-[64px] rounded-2xl bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] hover:from-[#5558E6] hover:to-[#7C3AED] text-white font-bold text-[17px] flex items-center justify-center gap-3 shadow-[0_4px_32px_rgba(99,102,241,0.35)] hover:shadow-[0_4px_40px_rgba(99,102,241,0.5)] transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
             >
               <Play size={20} fill="white" />
               Start Game

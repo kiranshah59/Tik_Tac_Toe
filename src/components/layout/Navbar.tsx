@@ -21,7 +21,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg/80 backdrop-blur-xl border-b border-white/5 transition-all" role="navigation" aria-label="Main navigation">
-      <div className="w-[calc(100%-120px)] mx-auto">
+      <div className="w-[calc(100%-120px)] max-w-[1400px] mx-auto">
         <div className="flex items-center justify-between h-[72px] relative">
           {/* Logo */}
           <Link

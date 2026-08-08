@@ -5,6 +5,7 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
+import { Footer } from './components/layout/Footer';
 import { ToastContainer } from './components/ui/Toast';
 import { HomePage } from './pages/HomePage';
 
@@ -34,8 +35,6 @@ const PageLoader: React.FC = () => (
     </div>
   </div>
 );
-
-import { Footer } from './components/layout/Footer';
 
 const App: React.FC = () => {
   return (
