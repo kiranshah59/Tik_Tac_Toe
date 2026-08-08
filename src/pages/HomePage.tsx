@@ -33,17 +33,17 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col items-center justify-start relative z-10 min-h-full">
-      
+
       {/* Hero Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-28 min-h-[75vh] flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-8">
-        
+      <section className="w-[calc(100%-120px)] max-w-[1400px] mx-auto py-8 md:py-12 lg:py-16 min-h-[65vh] flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-8">
+
         {/* Left: Text Content */}
         <div className="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start animate-slide-up">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#131B3A] border border-blue-500/20 text-xs font-semibold tracking-wide mb-6 shadow-sm">
             <Sparkles size={14} className="text-blue-400" />
             <span className="text-blue-400">The Ultimate Tic-Tac-Toe Experience</span>
           </div>
-          
+
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-black font-[family-name:var(--font-heading)] mb-6 tracking-tight text-white/95 leading-[1.1]">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22D3EE] via-[#6366F1] to-[#8B5CF6] drop-shadow-[0_0_15px_rgba(99,102,241,0.5)]">
               Tic-Tac-Toe
@@ -51,11 +51,11 @@ export const HomePage: React.FC = () => {
             <br />
             Reimagined.
           </h1>
-          
+
           <p className="text-base sm:text-lg text-secondary/80 mb-10 max-w-[600px] leading-relaxed">
             Step into the arena with a modern glassmorphism design, intelligent AI opponents, and rich statistics. Play locally against a friend or challenge the unbeatable computer.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <Button
               variant="primary"
@@ -89,7 +89,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="w-[calc(100%-120px)] max-w-[1400px] mx-auto py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <Card
@@ -116,7 +116,7 @@ export const HomePage: React.FC = () => {
           ))}
         </div>
       </section>
-      
+
       {/* Decorative Bottom Spacing */}
       <div className="h-16" />
     </div>

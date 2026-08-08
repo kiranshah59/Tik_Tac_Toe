@@ -10,7 +10,7 @@ export const AnimatedBoardPreview: React.FC = () => {
 
   useEffect(() => {
     let cancelled = false;
-    
+
     const playSequence = async () => {
       // The sequence of moves to demonstrate a win
       const moves = [
@@ -39,11 +39,11 @@ export const AnimatedBoardPreview: React.FC = () => {
         if (cancelled) return;
       }
 
-      // Show win line
-      setWinLine([2, 5, 8]);
+      // Show win line on center cell
+      setWinLine([4]);
       await new Promise((r) => setTimeout(r, 2000));
       if (cancelled) return;
-      
+
       // Loop
       playSequence();
     };
@@ -53,10 +53,10 @@ export const AnimatedBoardPreview: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full aspect-square mx-auto">
+    <div className="relative w-full aspect-square mx-auto max-w-[380px]">
       {/* Glow behind the board */}
       <div className="absolute inset-0 bg-[#4F46E5]/20 blur-[80px] rounded-full animate-pulse-glow" />
-      
+
       {/* Background Particles (using absolute divs) */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-0 w-1 h-1 bg-cyan-400 rounded-full blur-[1px] animate-pulse" />
@@ -64,16 +64,16 @@ export const AnimatedBoardPreview: React.FC = () => {
         <div className="absolute top-1/2 -left-4 w-1 h-1 bg-blue-400 rounded-full blur-[0.5px]" />
         <div className="absolute bottom-1/3 -right-6 w-1 h-1 bg-cyan-300 rounded-full blur-[1px] animate-pulse" style={{ animationDelay: '0.5s' }} />
       </div>
-      
+
       {/* The Board */}
       <div className="relative z-10 w-full h-full rounded-3xl p-4 md:p-6 shadow-[0_0_40px_rgba(79,70,229,0.3),inset_0_0_20px_rgba(79,70,229,0.2)] border border-[#4F46E5]/50 grid grid-cols-3 gap-2 bg-[#0c1226]/80 backdrop-blur-xl">
         {board.map((cell, index) => {
           const isWinningCell = winLine?.includes(index);
           return (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`
-                rounded-xl flex items-center justify-center text-5xl font-bold transition-all duration-300
+                rounded-xl flex items-center justify-center text-5xl md:text-6xl font-bold transition-all duration-300
                 bg-transparent border border-[#4F46E5]/20
                 ${cell ? 'scale-100 opacity-100' : 'scale-90 opacity-0'}
                 ${isWinningCell ? 'bg-[#4F46E5]/10 shadow-[inset_0_0_15px_rgba(79,70,229,0.3)]' : ''}
@@ -95,13 +95,14 @@ export const AnimatedBoardPreview: React.FC = () => {
         {/* Winning Line Overlay */}
         {winLine && (
           <div className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center animate-fade-in">
-             <div className="w-[110%] h-1 bg-[#A78BFA] shadow-[0_0_20px_rgba(167,139,250,1),0_0_40px_rgba(167,139,250,0.6)] transform rotate-45 flex items-center justify-center relative rounded-full">
-               <div className="absolute w-2 h-2 bg-white rounded-full left-[15%] shadow-[0_0_10px_white]"></div>
-               <div className="absolute w-2 h-2 bg-white rounded-full right-[15%] shadow-[0_0_10px_white]"></div>
-             </div>
+            <div className="w-[110%] h-1.5 bg-[#A78BFA] shadow-[0_0_20px_rgba(167,139,250,1),0_0_40px_rgba(167,139,250,0.6)] transform rotate-45 flex items-center justify-center relative rounded-full">
+              <div className="absolute w-2.5 h-2.5 bg-white rounded-full left-[15%] shadow-[0_0_10px_white]"></div>
+              <div className="absolute w-2.5 h-2.5 bg-white rounded-full right-[15%] shadow-[0_0_10px_white]"></div>
+            </div>
           </div>
         )}
       </div>
     </div>
   );
 };
+

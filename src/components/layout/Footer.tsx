@@ -47,42 +47,45 @@ export const Footer: React.FC = () => {
       {/* Decorative top glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-[#6366F1]/40 to-transparent" />
 
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-8 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-6">
+      <div className="w-[calc(100%-120px)] max-w-[1400px] mx-auto py-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-8">
 
-          {/* Brand — span 4 */}
-          <div className="md:col-span-4 flex flex-col gap-3">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6366F1] to-[#8B5CF6] flex items-center justify-center text-[11px] font-bold text-white shadow-[0_0_16px_rgba(99,102,241,0.35)]">
+          {/* Brand — span 3 */}
+          <div className="md:col-span-3 flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#6366F1] to-[#8B5CF6] flex items-center justify-center text-sm font-bold text-white shadow-[0_0_16px_rgba(99,102,241,0.35)]">
                 T³
               </div>
-              <span className="font-semibold font-[family-name:var(--font-heading)] text-[15px] tracking-tight text-white">
+              <span className="font-semibold font-[family-name:var(--font-heading)] text-lg tracking-tight text-white">
                 Tic-Tac-Toe
               </span>
             </div>
-            <p className="text-[11px] text-[#556080] leading-relaxed max-w-[260px]">
-              The ultimate classic game reimagined with modern design, smart AI, and premium aesthetics.
+            <p className="text-sm text-[#556080] leading-relaxed max-w-[260px]">
+              The ultimate classic game reimagined with modern design, smart AI, and premium aesthetics. Built for the modern web.
             </p>
-            <div className="flex items-center gap-2 mt-1">
-              <a href="#" className="w-7 h-7 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-[#556080] hover:text-white hover:border-[#6366F1]/40 hover:bg-[#6366F1]/10 transition-all duration-300" aria-label="GitHub">
-                <GithubIcon size={13} />
-              </a>
-              <a href="#" className="w-7 h-7 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-[#556080] hover:text-white hover:border-[#22D3EE]/40 hover:bg-[#22D3EE]/10 transition-all duration-300" aria-label="LinkedIn">
-                <LinkedinIcon size={13} />
-              </a>
-              <a href="#" className="w-7 h-7 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-[#556080] hover:text-white hover:border-[#8B5CF6]/40 hover:bg-[#8B5CF6]/10 transition-all duration-300" aria-label="Portfolio">
-                <Briefcase size={13} />
-              </a>
-              <a href="#" className="w-7 h-7 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-[#556080] hover:text-white hover:border-[#F59E0B]/40 hover:bg-[#F59E0B]/10 transition-all duration-300" aria-label="Email">
-                <Mail size={13} />
-              </a>
+            <div className="flex flex-col gap-3 mt-2">
+              <span className="text-xs font-bold text-[#7a85a3] uppercase tracking-[0.15em]">Follow Us</span>
+              <div className="flex items-center gap-3">
+                <a href="#" className="w-9 h-9 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-[#556080] hover:text-white hover:border-[#6366F1]/40 hover:bg-[#6366F1]/10 transition-all duration-300" aria-label="GitHub">
+                  <GithubIcon size={16} />
+                </a>
+                <a href="#" className="w-9 h-9 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-[#556080] hover:text-white hover:border-[#22D3EE]/40 hover:bg-[#22D3EE]/10 transition-all duration-300" aria-label="LinkedIn">
+                  <LinkedinIcon size={16} />
+                </a>
+                <a href="#" className="w-9 h-9 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-[#556080] hover:text-white hover:border-[#8B5CF6]/40 hover:bg-[#8B5CF6]/10 transition-all duration-300" aria-label="Portfolio">
+                  <Briefcase size={16} />
+                </a>
+                <a href="#" className="w-9 h-9 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-[#556080] hover:text-white hover:border-[#F59E0B]/40 hover:bg-[#F59E0B]/10 transition-all duration-300" aria-label="Email">
+                  <Mail size={16} />
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Product Links — span 2 */}
-          <div className="md:col-span-2 flex flex-col gap-3">
-            <h3 className="text-[10px] font-bold text-[#7a85a3] uppercase tracking-[0.15em]">Product</h3>
-            <div className="flex flex-col gap-2">
+          <div className="md:col-span-2 flex flex-col gap-4">
+            <h3 className="text-xs font-bold text-[#7a85a3] uppercase tracking-[0.15em]">Product</h3>
+            <div className="flex flex-col gap-3">
               <FooterLink to="/">Home</FooterLink>
               <FooterLink to="/settings">Play Now</FooterLink>
               <FooterLink to="/history">History</FooterLink>
@@ -92,49 +95,71 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Resources — span 2 */}
-          <div className="md:col-span-2 flex flex-col gap-3">
-            <h3 className="text-[10px] font-bold text-[#7a85a3] uppercase tracking-[0.15em]">Resources</h3>
-            <div className="flex flex-col gap-2">
+          <div className="md:col-span-2 flex flex-col gap-4">
+            <h3 className="text-xs font-bold text-[#7a85a3] uppercase tracking-[0.15em]">Resources</h3>
+            <div className="flex flex-col gap-3">
               <ExternalLink href="#">Source Code</ExternalLink>
               <ExternalLink href="#">Documentation</ExternalLink>
               <ExternalLink href="#">Report Issue</ExternalLink>
+              <ExternalLink href="#">API Reference</ExternalLink>
             </div>
           </div>
 
-          {/* Tech Stack — span 4 */}
-          <div className="md:col-span-4 flex flex-col gap-3">
-            <h3 className="text-[10px] font-bold text-[#7a85a3] uppercase tracking-[0.15em]">Powered By</h3>
-            <div className="flex flex-wrap gap-1.5">
+          {/* Tech Stack — span 3 */}
+          <div className="md:col-span-3 flex flex-col gap-4">
+            <h3 className="text-xs font-bold text-[#7a85a3] uppercase tracking-[0.15em]">Powered By</h3>
+            <div className="flex flex-col gap-2">
               {[
                 { icon: Component, name: 'React', color: '#61DAFB' },
                 { icon: Code2, name: 'TypeScript', color: '#3178C6' },
-                { icon: Wind, name: 'Tailwind', color: '#38BDF8' },
+                { icon: Wind, name: 'Tailwind CSS', color: '#38BDF8' },
                 { icon: Database, name: 'Zustand', color: '#FACC15' },
                 { icon: Sparkles, name: 'Vite', color: '#646CFF' },
               ].map((tech) => (
                 <div
                   key={tech.name}
-                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.12] hover:bg-white/[0.04] transition-all duration-200 cursor-default"
+                  className="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.12] hover:bg-white/[0.04] transition-all duration-200 cursor-default w-max"
                 >
-                  <tech.icon size={11} style={{ color: tech.color }} />
-                  <span className="text-[10px] font-medium text-[#556080]">{tech.name}</span>
+                  <tech.icon size={14} style={{ color: tech.color }} />
+                  <span className="text-sm font-medium text-[#556080]">{tech.name}</span>
                 </div>
               ))}
             </div>
           </div>
+
+          {/* Contact — span 2 */}
+          <div className="md:col-span-2 flex flex-col gap-4">
+            <h3 className="text-xs font-bold text-[#7a85a3] uppercase tracking-[0.15em]">Contact</h3>
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-2 text-[#556080] hover:text-[#22D3EE] transition-colors cursor-pointer group">
+                <div className="w-8 h-8 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center group-hover:bg-[#22D3EE]/10 group-hover:border-[#22D3EE]/40 transition-colors">
+                  <Mail size={14} />
+                </div>
+                <span className="text-sm">hello@tictactoe.dev</span>
+              </div>
+              <div className="flex items-center gap-2 text-[#556080] hover:text-white transition-colors cursor-pointer group">
+                <div className="w-8 h-8 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/20 transition-colors">
+                  <GithubIcon size={14} />
+                </div>
+                <span className="text-sm">github.com/tictactoe</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-8 pt-5 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-[11px] text-[#3d4663]">
+        <div className="mt-12 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-[#556080]">
             © {new Date().getFullYear()} Tic-Tac-Toe. All rights reserved.
           </p>
-          <div className="flex items-center gap-5 text-[11px] text-[#3d4663]">
-            <a href="#" className="hover:text-[#7a85a3] transition-colors">Privacy</a>
-            <a href="#" className="hover:text-[#7a85a3] transition-colors">Terms</a>
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] shadow-[0_0_6px_#10B981]" />
-              <span className="text-[#556080]">Operational</span>
+          <div className="flex items-center gap-6 text-sm text-[#556080]">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <div className="w-1 h-1 rounded-full bg-[#556080]" />
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#10B981] shadow-[0_0_8px_#10B981]" />
+              <span className="text-[#8a94b5]">All Systems Operational</span>
             </div>
           </div>
         </div>
